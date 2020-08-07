@@ -20,18 +20,27 @@ public class Email {
         this.lastName = lastName;
         System.out.println("Creating email for " + firstName + " " + lastName + "...");
 
-        // ask for department and return department
-        setDepartment();
+        this.department = setDepartment();
+        this.password = genRandomPass(10);
     }
 
-    // ask for department
-    private void setDepartment() {
+    // ask user input for department
+    private String setDepartment() {
         System.out.print("Enter your department: ");
         Scanner in = new Scanner(System.in);
-        this.department = in.next();
+        return in.next();
     }
 
     // generate random password
+    private String genRandomPass(int passLength) {
+        String CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        char[] password = new char[passLength];
+        for (int i = 0; i < passLength; i++) {
+            int randIndex = (int) (Math.random() * CHARS.length());
+            password[i]  = CHARS.charAt(randIndex);
+        }
+        return new String(password);
+    }
 
     // set mailbox capacity
 
