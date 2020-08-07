@@ -18,6 +18,7 @@ public class Email {
 
         this.department = setDepartment();
         this.password = genRandomPass(10);
+        this.companyEmail = setCompanyEmail();
     }
 
     // ask user input for department
@@ -46,7 +47,8 @@ public class Email {
 
     // set companyEmail
     private String setCompanyEmail() {
-    
+        // format: firstname_lastname@department.company.com
+        return (firstName + "_" + lastName + "@" + department + "." + company + ".com").toLowerCase();
     }
 
 
@@ -57,6 +59,6 @@ public class Email {
         System.out.println("Last name: " + this.lastName);
         System.out.println("Department: " + this.department);
         System.out.println("Password: " + this.password);
-
+        System.out.println("Company email: " + this.companyEmail);
     }
 }
