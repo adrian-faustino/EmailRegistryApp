@@ -3,16 +3,12 @@ package com.company;// tutorial reference: https://www.youtube.com/watch?v=U3Ibv
 import java.util.Scanner;
 
 public class Email {
+    private static String company = "habitBook";
     private String firstName;
     private String lastName;
     private String password;
     private String department;
-    private int mailboxCapacity;
-    private String alternateEmail;
-
-    static {
-        String company = "habitBook";
-    }
+    private String companyEmail;
 
     // constructor to receive first name and last name
     public Email (String firstName, String lastName) {
@@ -28,7 +24,13 @@ public class Email {
     private String setDepartment() {
         System.out.print("Enter your department: ");
         Scanner in = new Scanner(System.in);
-        return in.next();
+        String input = in.next();
+        if (input.isEmpty()) {
+            System.out.println("Department cannot be empty.");
+            return setDepartment();
+        } else {
+            return input;
+        }
     }
 
     // generate random password
@@ -42,17 +44,19 @@ public class Email {
         return new String(password);
     }
 
-    // set mailbox capacity
+    // set companyEmail
+    private String setCompanyEmail() {
+    
+    }
 
-    // set alternate email
-
-    // change password
 
     // get user data
     public void displayUserData() {
+        System.out.println("Company: " + this.company);
         System.out.println("First name: " + this.firstName);
         System.out.println("Last name: " + this.lastName);
         System.out.println("Department: " + this.department);
         System.out.println("Password: " + this.password);
+
     }
 }
