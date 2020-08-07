@@ -49,4 +49,10 @@ public class Email {
     // change password
 
     // get user data
+    public void displayUserData() {
+        System.out.println("First name: " + this.firstName);
+        System.out.println("Last name: " + this.lastName);
+        System.out.println("Department: " + this.department);
+        System.out.println("Password: " + this.password);
+    }
 }
